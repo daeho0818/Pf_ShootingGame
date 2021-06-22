@@ -8,7 +8,6 @@ public:
 	cTitleScene();
 	~cTitleScene();
 
-	int select;
 	bool bStartBtnOver = false;
 	bool bQuitBtnOver = false;
 	bool bGameStart = false;
