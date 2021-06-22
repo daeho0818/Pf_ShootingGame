@@ -13,10 +13,15 @@ public:
 	char chkLR = 'L';
 	Vec2 UIPos;
 	Vec2 curPos;
+
 	vector<cBullet*>& m_bullet;
+
+	cPlayer* player = nullptr;
+
 	cTimer* Pattern1T = nullptr;
 	cTimer* Pattern2T = nullptr;
 	cTimer* Pattern3T = nullptr;
+	cTimer* Pattern4T = nullptr;
 
 	bool pattern1 = true;
 	bool pattern2 = true;

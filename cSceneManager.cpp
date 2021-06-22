@@ -20,7 +20,7 @@ void cSceneManager::Update()
 		nowScene = nextScene;
 		nextScene = nullptr;
 	}
-	if (INPUT->KeyDown(32)) mobCount += 25;
+	if (INPUT->KeyDown(32)) mobCount += 15;
 }
 
 void cSceneManager::Render()
@@ -54,4 +54,5 @@ void cSceneManager::ChangeScene(string key)
 void cSceneManager::PlayerInit()
 {
 	m_Hp = 6;
+	multiDir = false;
 }

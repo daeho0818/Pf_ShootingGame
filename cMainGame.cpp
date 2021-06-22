@@ -90,6 +90,20 @@ void cMainGame::AddResource()
 	IMAGE->AddImage("expl_player", "effect/player/expl_player", 10);
 	IMAGE->AddImage("skill_effect", "skill/SkillEffect", 20);
 
+	IMAGE->AddImage("StartButton", "Title/Buttons/StartButton");
+	IMAGE->AddImage("StartButtonHighlight", "Title/Buttons/StartButtonHighlight");
+	IMAGE->AddImage("StartButtonPressed", "Title/Buttons/StartButtonPressed");
+
+	IMAGE->AddImage("QuitButton", "Title/Buttons/QuitButton");
+	IMAGE->AddImage("QuitButtonHighlight", "Title/Buttons/QuitButtonHighlight");
+	IMAGE->AddImage("QuitButtonPressed", "Title/Buttons/QuitButtonPressed");
+
+	IMAGE->AddImage("LobbyButton", "Title/Buttons/LobbyButton");
+	IMAGE->AddImage("LobbyButtonHighlight", "Title/Buttons/LobbyButtonHighlight");
+	IMAGE->AddImage("LobbyButtonPressed", "Title/Buttons/LobbyButtonPressed");
+	
+	IMAGE->AddImage("GameName", "Title/GameName");
+
 	SOUND->AddSound("gun_fire", L"gun_fire");
 	SOUND->AddSound("explosion", L"explosion");
 	SOUND->AddSound("playerHurt", L"playerHurt");

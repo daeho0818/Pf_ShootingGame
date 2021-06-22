@@ -51,7 +51,7 @@ void cUIManager::CropRender(cTexture* ptr, Vec2 pos, RECT& rc)
 void cUIManager::PrintText(string str, Vec2 pos, float size)
 {
 	D3DXMATRIXA16 mat;
-	D3DXCreateFontA(g_device, size * 0.8, 0, 10, 1, 0, DEFAULT_CHARSET, 0, 0, 0, "메이플스토리", &m_font);
+	D3DXCreateFontA(g_device, size * 0.8, 0, 10, 1, 0, DEFAULT_CHARSET, 0, 0, 0, "아임크리수진", &m_font);
 	D3DXMatrixTranslation(&mat, pos.x - size * (str.size() * 0.25), pos.y - size / 2, 0);
 	m_sprite->SetTransform(&mat);
 	m_font->DrawTextA(m_sprite, str.c_str(), str.size(), nullptr, DT_NOCLIP, D3DCOLOR_XRGB(255, 255, 255));

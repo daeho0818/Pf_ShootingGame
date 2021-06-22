@@ -7,7 +7,8 @@
 class cCollision
 {
 public:
-	cCollision(vector<cBullet*> &bullet, vector<cMob*> &m_mob, cPlayer* player, cItemAdmin* itemAd);
+	cCollision();
+	cCollision(vector<cBullet*>& bullet, vector<cMob*>& m_mob, cPlayer* player, cItemAdmin* itemAd);
 	~cCollision();
 
 	vector<cBullet*>& m_bullet;
@@ -25,4 +26,6 @@ public:
 	void MPBColl(); // ¸÷ ÇÃ·¹ÀÌ¾î ÃÑ¾Ë
 	void MBPColl(); // ¸ö ÃÑ¾Ë ÇÃ·¹ÀÌ¾î
 	void IPColl();
+
+	bool CheckCollision(Vec2 pos1, Vec2 pos2, cTexture* ptr, float size);
 };

@@ -106,3 +106,19 @@ void cCollision::IPColl()
 		iter++;
 	}
 }
+
+bool cCollision::CheckCollision(Vec2 pos1, Vec2 pos2, cTexture* ptr, float size)
+{
+	RECT rect = {
+		pos2.x - ptr->info.Width / 2 * size,
+		pos2.y - ptr->info.Height / 2 * size,
+		pos2.x + ptr->info.Width / 2 * size,
+		pos2.y + ptr->info.Height / 2 * size,
+	};
+
+	if (pos1.x >= rect.left && pos1.x <= rect.right && pos1.y >= rect.top && pos1.y <= rect.bottom)
+	{
+		return true;
+	}
+	return false;
+}

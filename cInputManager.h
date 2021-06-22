@@ -5,6 +5,7 @@ class cInputManager :
 {
 	bool nowkey[256]; // 방금 누른 키 저장
 	bool oldkey[256]; // 누른지 한턴 지난 키 저장
+	Vec2 mousePos;
 public:
 	cInputManager();
 	~cInputManager();
@@ -17,6 +18,12 @@ public:
 	bool KeyDown(int key);
 	// KeyUp() : 키보드가 "떼졌을 때" true를, 아니면 false를 반환하는 함수
 	bool KeyUp(int key);
+
+	Vec2 GetMousePos();
+	void SetMousePos(Vec2 mousePos);
+
+	bool lUp = false;
+	bool lDown = false;
 };
 
 #define INPUT cInputManager::GetInstance()

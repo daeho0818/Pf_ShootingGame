@@ -19,10 +19,13 @@ cPlayer::~cPlayer()
 void cPlayer::Update()
 {
 	if (playerAS) playerAS->Update();
-	
+
 	if (saveHeal) if (INPUT->KeyDown(VK_SHIFT)) { Heal(); saveHeal = false; }
 
+	if (INPUT->KeyDown(VK_F1)) m_Hp = 9999;
+
 	if (skillPoint >= 12) playerSkill = true;
+
 	Move();
 	FireBullet();
 	ItemUpdate();
@@ -65,10 +68,25 @@ void cPlayer::FireBullet()
 {
 	if (INPUT->KeyPress(90) && b_fire)
 	{
-		SOUND->Play("gun_fire");
-		m_bullet.push_back(new cPBullet(m_pos));
+		Vec2 Dir;
+		if (SCENE->multiDir)
+		{
+			for (int i = -1; i < 2; i++)
+			{
+				Dir = { float(i * 0.2f), 1 };
+				D3DXVec2Normalize(&Dir, &Dir);
+				SOUND->Play("gun_fire");
+				m_bullet.push_back(new cPBullet(m_pos, Dir));
+			}
+			b_fire = false;
+		}
+		else
+		{
+			SOUND->Play("gun_fire");
+			m_bullet.push_back(new cPBullet(m_pos));
+			b_fire = false;
+		}
 		playerAS = new cTimer(0.1, [&]()->void {b_fire = true; playerAS = nullptr; });
-		b_fire = false;
 	}
 }
 
@@ -82,9 +100,11 @@ void cPlayer::ItemUpdate()
 
 void cPlayer::Heal()
 {
-	if (m_Hp == 6) saveHeal = true;
-	else if (m_Hp + 2 > 6) m_Hp = 6;
+	if (m_Hp >= 6) saveHeal = true;
+
+	else if (m_Hp >= 4) m_Hp = 6;
 	else m_Hp += 2;
+
 	SOUND->Play("heal");
 	ItemName = "none";
 }

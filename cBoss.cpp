@@ -32,6 +32,7 @@ cBoss::~cBoss()
 	SAFE_DELETE(Pattern1T);
 	SAFE_DELETE(Pattern2T);
 	SAFE_DELETE(Pattern3T);
+	SAFE_DELETE(Pattern4T);
 }
 
 void cBoss::Update()
@@ -39,7 +40,8 @@ void cBoss::Update()
 	if (Pattern1T != nullptr) Pattern1T->Update();
 	if (Pattern2T != nullptr) Pattern2T->Update();
 	if (Pattern3T != nullptr) Pattern3T->Update();
-	
+	if (Pattern4T != nullptr) Pattern4T->Update();
+
 	if (m_pos.y <= 200)
 		m_pos.y += 3;
 	else
@@ -75,7 +77,7 @@ void cBoss::Pattern1()
 		D3DXVec2Normalize(&pos, &(m_player->m_pos - m_pos));
 		Pattern1T = new cTimer(2.5, [&]()->void {
 			pattern1 = true;
-			Pattern1T = nullptr; 
+			Pattern1T = nullptr;
 			});
 
 		m_bullet.push_back(new cMBullet(Vec2(m_pos.x -= 50, m_pos.y), pos, m_damage));
@@ -94,8 +96,8 @@ void cBoss::Pattern2()
 		float  angle = 0;
 		float  rad = D3DX_PI * 2 / 25;
 		Pattern2T = new cTimer(10, [&]()->void {
-		pattern2 = true;
-		Pattern2T = nullptr; 
+			pattern2 = true;
+			Pattern2T = nullptr;
 			});
 		for (float i = 0; i < 25; i++, angle += rad)
 		{
@@ -103,6 +105,19 @@ void cBoss::Pattern2()
 			Direction = Direction - m_pos;
 			D3DXVec2Normalize(&Direction, &Direction);
 			m_bullet.push_back(new cMBullet(m_pos, Direction, m_damage, 10, 400));
+
+			if (Pattern4T == nullptr && SCENE->stage == 0)
+			{
+				Pattern4T = new cTimer(2, [&]()->void {
+					for (auto iter : m_bullet)
+					{
+						Vec2 Dir = m_pos - iter->m_pos;
+						D3DXVec2Normalize(&Dir, &Dir);
+						iter->m_Dir = Dir;
+					}
+					Pattern4T = nullptr;
+					});
+			}
 		}
 		pattern2 = false;
 	}

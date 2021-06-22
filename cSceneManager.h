@@ -15,7 +15,9 @@ public:
 	int mobCount = 0;
 	int stage = 0;
 	int bossCount = 0;
+
 	bool gameClear;
+	bool multiDir;
 
 	void Update();
 	void Render();

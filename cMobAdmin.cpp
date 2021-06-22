@@ -45,7 +45,7 @@ void cMobAdmin::CreateMob()
 	if (SideT != nullptr) SideT->Update();
 	if (RifleT != nullptr) RifleT->Update();
 
-	if (SCENE->mobCount >= 50)
+	if (SCENE->mobCount >= 30)
 	{
 		if (boss)
 		{
@@ -73,7 +73,29 @@ void cMobAdmin::CreateMob()
 		}
 	}
 
-	else if (SCENE->mobCount >= 25 && SCENE->stage == 0)
+	else if (SCENE->mobCount >= 15 && SCENE->stage == 1)
+	{
+		if (Side)
+		{
+			SideT = new cTimer(4, [&]()->void {Side = true; SideT = nullptr; });
+			m_mobs.push_back(new cSideMove(Vec2(rand() % 1320 + 300, -100), m_player, m_bullet));
+			Side = false;
+		}
+		if (Bal)
+		{
+			BalT = new cTimer(3, [&]()->void {Bal = true; BalT = nullptr; });
+			m_mobs.push_back(new cBalloon(Vec2(rand() % 1320 + 300, -100), m_player, m_bullet));
+			Bal = false;
+		}
+		if (Rifle)
+		{
+			RifleT = new cTimer(7, [&]()->void {Rifle = true; RifleT = nullptr; });
+			m_mobs.push_back(new cRifle(Vec2(rand() % 1320 + 300, -100), m_player, m_bullet));
+			Rifle = false;
+		}
+	}	
+	
+	else if (SCENE->mobCount >= 15 && SCENE->stage == 0)
 	{
 		if (boss)
 		{
@@ -149,6 +171,7 @@ void cMobAdmin::IsDestroy()
 			if ((*iter)->mobType == "Boss")
 			{
 				SCENE->bossCount++;
+				SCENE->multiDir = true;
 				if (SCENE->bossCount == 1)
 					AS = new cTimer(3, [&]()->void {SCENE->stage = 1; AS = nullptr; });
 				if (SCENE->bossCount == 3)

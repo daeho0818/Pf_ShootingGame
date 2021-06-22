@@ -18,9 +18,9 @@ void cScrollMap::Update(float speed)
 
 void cScrollMap::Render()
 {
-	if (SCENE->mobCount < 25)
+	if (SCENE->mobCount < 15)
 		key = "stage_1_BG";
-	else if (SCENE->mobCount < 50)
+	else if (SCENE->mobCount < 30)
 		key = "stage_2_BG";
 	else
 		key = "stage_3_BG";
