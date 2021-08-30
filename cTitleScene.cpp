@@ -20,6 +20,9 @@ void cTitleScene::Init()
 
 	SOUND->StopAll();
 	SOUND->Play("b", true);
+
+	cloud_oper_value[0] = WINSIZEX / 2;
+	cloud_oper_value[1] = (WINSIZEX / 2) - WINSIZEX;
 }
 
 void cTitleScene::Update()
@@ -95,14 +98,36 @@ void cTitleScene::Update()
 			bQuitBtnOver = false;
 		}
 	}
+
+	if (moon_oper_value > 90) isMoonUp = false;
+	else if (moon_oper_value < -90) isMoonUp = true;
+
+	if (!isMoonUp)
+		moon_oper_value--;
+	else
+		moon_oper_value++;
+
+	cloud_oper_value[0] += 10;
+	cloud_oper_value[1] += 10;
+
+	if (cloud_oper_value[0] > (int)(WINSIZEX + IMAGE->FindImage("Title_BG_Cloud")->info.Width / 2))
+	{
+		cloud_oper_value[0] = (WINSIZEX / 2) - WINSIZEX;
+	}
+	if (cloud_oper_value[1] > (int)(WINSIZEX + IMAGE->FindImage("Title_BG_Cloud")->info.Width / 2))
+	{
+		cloud_oper_value[1] = (WINSIZEX / 2) - WINSIZEX;
+	}
 }
 
 void cTitleScene::Render()
 {
 	RENDER->CenterRender(IMAGE->FindImage("Title_BG"), Vec2(WINSIZEX / 2, WINSIZEY / 2));
 	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Mountains"), Vec2(WINSIZEX / 2, WINSIZEY / 2));
-	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Moon"), Vec2(WINSIZEX / 4, 200));
-	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Cloud"), Vec2(WINSIZEX / 2, WINSIZEY / 2));
+	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Moon"), Vec2(WINSIZEX / 4, (sin(moon_oper_value * D3DX_PI / 180) * 50)));
+	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Cloud"), Vec2(cloud_oper_value[0], WINSIZEY / 2));
+	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Cloud"), Vec2(cloud_oper_value[0] * 2, WINSIZEY / 2));
+	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Cloud"), Vec2(cloud_oper_value[1], WINSIZEY / 2));
 
 	if (bGameStart)
 		RENDER->CenterRender(IMAGE->FindImage("StartButtonPressed"), Vec2(WINSIZEX / 2 - 300, 700), 0.7);
