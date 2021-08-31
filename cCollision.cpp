@@ -39,7 +39,7 @@ void cCollision::MPColl() //ÇÃ·¹ÀÌ¾î¿Í ¸÷
 				if ((*iter)->mobType == "Boss") b_PMcoll = true;
 			}
 		}
-			iter++;
+		iter++;
 	}
 }
 void cCollision::MPBColl() //ÇÃ·¹ÀÌ¾î ÃÑ¾Ë°ú ¸÷
@@ -68,7 +68,7 @@ void cCollision::MPBColl() //ÇÃ·¹ÀÌ¾î ÃÑ¾Ë°ú ¸÷
 				m_itemAd->mobDead = true;
 				m_itemAd->mobPos = (*miter)->m_pos;
 				(*miter)->isDestroy = true;
-				if(m_player->skillPoint < 12)
+				if (m_player->skillPoint < 12)
 					m_player->skillPoint++;
 			}
 		}
@@ -110,10 +110,10 @@ void cCollision::IPColl()
 bool cCollision::CheckCollision(Vec2 pos1, Vec2 pos2, cTexture* ptr, float size)
 {
 	RECT rect = {
-		pos2.x - ptr->info.Width / 2 * size,
-		pos2.y - ptr->info.Height / 2 * size,
-		pos2.x + ptr->info.Width / 2 * size,
-		pos2.y + ptr->info.Height / 2 * size,
+		pos2.x - ptr->info.Width * size / 2,
+		pos2.y - ptr->info.Height * size / 2,
+		pos2.x + ptr->info.Width * size / 2,
+		pos2.y + ptr->info.Height * size / 2,
 	};
 
 	if (pos1.x >= rect.left && pos1.x <= rect.right && pos1.y >= rect.top && pos1.y <= rect.bottom)

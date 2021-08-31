@@ -23,11 +23,13 @@ private:
 	bool isMoonUp = false;
 
 	float moon_oper_value = 0;
-
+	
 	int cloud_oper_value[2] = { 0, };
+	int mountains_oper_value[2] = { 0, };
 
 	Vec2 downPos;
 	Vec2 upPos;
+	Vec2 playerPos;
 
 	cCollision* coll;
 };

@@ -21,8 +21,8 @@ using namespace std; // std:: 를 생략하기 위함
 using Vec2 = D3DXVECTOR2; // 2D 좌표 관리
 using Vec3 = D3DXVECTOR3; // 3D 좌표 관리
 
-const int WINSIZEX = 1600; // 윈도우 가로 크기
-const int WINSIZEY = 900; // 윈도우 세로 크기
+const int WINSIZEX = 1920; // 윈도우 가로 크기
+const int WINSIZEY = 1080; // 윈도우 세로 크기
 
 #include "cTexture.h"
 #include "cScene.h"

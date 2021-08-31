@@ -14,7 +14,7 @@ public:
 	void Reset();
 	void Lost();
 
-	void CenterRender(cTexture* ptr, Vec2 pos);
+	void CenterRender(cTexture* ptr, Vec2 pos, float size = 1);
 	void CropRender(cTexture* ptr, Vec2 pos, RECT& rc);
 	void PrintText(string str, Vec2 pos, float size);
 };

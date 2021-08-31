@@ -15,7 +15,7 @@ void cEndingScene::Init()
 
 void cEndingScene::Update()
 {
-	if (INPUT->lDown)
+	if (INPUT->LButtonDown())
 	{
 		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("StartButton"), 0.7))
 		{
@@ -35,9 +35,8 @@ void cEndingScene::Update()
 			bExit = false;
 		}
 		downPos = INPUT->GetMousePos();
-		INPUT->lDown = false;
 	}
-	else if (INPUT->lUp)
+	else if (INPUT->LButtonUp())
 	{
 		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("StartButton"), 0.7))
 		{
@@ -64,7 +63,6 @@ void cEndingScene::Update()
 			bExit = false;
 			bQuitBtnOver = false;
 		}
-		INPUT->lUp = false;
 	}
 	else
 	{

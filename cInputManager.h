@@ -22,8 +22,13 @@ public:
 	Vec2 GetMousePos();
 	void SetMousePos(Vec2 mousePos);
 
-	bool lUp = false;
-	bool lDown = false;
+	bool LButtonDown();
+	bool LButtonUp();
+	bool LButton();
+
+	bool downLButton = false;
+	bool upLButton = false;
+	bool lButton = false;
 };
 
 #define INPUT cInputManager::GetInstance()

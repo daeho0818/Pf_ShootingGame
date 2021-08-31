@@ -32,10 +32,10 @@ void cUIManager::Lost()
 	m_sprite->OnLostDevice();
 }
 
-void cUIManager::CenterRender(cTexture* ptr, Vec2 pos)
+void cUIManager::CenterRender(cTexture* ptr, Vec2 pos, float size)
 {
 	D3DXMATRIXA16 mat;
-	D3DXMatrixAffineTransformation2D(&mat, 2, nullptr, 0, &Vec2(pos.x - ptr->info.Width / 2, pos.y - ptr->info.Height / 2));
+	D3DXMatrixAffineTransformation2D(&mat, 1 * size, nullptr, 0, &Vec2(pos.x - ptr->info.Width / 2, pos.y - ptr->info.Height / 2));
 	m_sprite->SetTransform(&mat);
 	m_sprite->Draw(ptr->ptr, nullptr, nullptr, nullptr, D3DCOLOR_XRGB(255, 255, 255));
 }

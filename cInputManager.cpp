@@ -47,3 +47,18 @@ void cInputManager::SetMousePos(Vec2 mousePos)
 {
 	this->mousePos = mousePos;
 }
+
+bool cInputManager::LButtonDown()
+{
+	return downLButton;
+}
+
+bool cInputManager::LButtonUp()
+{
+	return upLButton;
+}
+
+bool cInputManager::LButton()
+{
+	return lButton;
+}

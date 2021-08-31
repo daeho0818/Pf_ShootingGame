@@ -93,15 +93,19 @@ void CALLBACK OnD3D9FrameRender(IDirect3DDevice9* pd3dDevice, double fTime, floa
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 	bool* pbNoFurtherProcessing, void* pUserContext)
 {
-	cTimer* timer;
+	if (INPUT->downLButton)
+		INPUT->lButton = true;
+	if (INPUT->upLButton)
+		INPUT->lButton = false;
+
 	switch (uMsg)
 	{
 	case WM_LBUTTONDOWN:
-		INPUT->lDown = true;
-		break;
+		INPUT->downLButton = true;
+		return 0;
 	case WM_LBUTTONUP:
-		INPUT->lUp = true;
-		break;
+		INPUT->upLButton = true;
+		return 0;
 	case WM_MOUSEMOVE:
 		Vec2 mousePos;
 		mousePos.x = LOWORD(lParam);
@@ -109,6 +113,9 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 		INPUT->SetMousePos(mousePos);
 		break;
 	}
+
+	INPUT->downLButton = false;
+	INPUT->upLButton = false;
 	return 0;
 }
 
