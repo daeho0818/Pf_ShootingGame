@@ -24,12 +24,12 @@ void cTitleScene::Init()
 
 	bcoll = new cButtonCollision();
 	startButton =
-		new cButton(IMAGE->FindImage("StartButton"), Vec2(WINSIZEX / 2 - 300, 700), 2, [&]()->void {SCENE->ChangeScene("cIngameScene"); });
+		new cButton(IMAGE->FindImage("StartButton"), Vec2(300, 600), 2, [&]()->void {SCENE->ChangeScene("cIngameScene"); });
 	startButton->InitImgs(IMAGE->FindImage("StartButton"), IMAGE->FindImage("StartButtonHighlight"), IMAGE->FindImage("StartButtonPressed"));
 	bcoll->AddButton(startButton);
 
 	quitButton =
-		new cButton(IMAGE->FindImage("QuitButton"), Vec2(WINSIZEX / 2 + 300, 700), 2, [&]()->void {exit(0); });
+		new cButton(IMAGE->FindImage("QuitButton"), Vec2(300, 1000), 2, [&]()->void {exit(0); });
 	quitButton->InitImgs(IMAGE->FindImage("QuitButton"), IMAGE->FindImage("QuitButtonHighlight"), IMAGE->FindImage("QuitButtonPressed"));
 	bcoll->AddButton(quitButton);
 }

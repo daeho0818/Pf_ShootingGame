@@ -11,79 +11,19 @@ cEndingScene::~cEndingScene()
 
 void cEndingScene::Init()
 {
+	bcoll = new cButtonCollision();
+	lobbyButton = new cButton(IMAGE->FindImage("LobbyButton"), Vec2(WINSIZEX / 2 - 300, 600), 2, [&]()->void {SCENE->ChangeScene("cTitleScene"); });
+	lobbyButton->InitImgs(IMAGE->FindImage("LobbyButton"), IMAGE->FindImage("LobbyButtonHighlight"), IMAGE->FindImage("LobbyButtonPressed"));
+	bcoll->AddButton(lobbyButton);
+
+	quitButton = new cButton(IMAGE->FindImage("QuitButton"), Vec2(WINSIZEX / 2 - 300, 1000), 2, [&]()->void {exit(0); });
+	quitButton->InitImgs(IMAGE->FindImage("QuitButton"), IMAGE->FindImage("QuitButtonHighlight"), IMAGE->FindImage("QuitButtonPressed"));
+	bcoll->AddButton(quitButton);
 }
 
 void cEndingScene::Update()
 {
-	if (INPUT->LButtonDown())
-	{
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("StartButton"), 0.7))
-		{
-			bTitle = true;
-		}
-		else
-		{
-			bTitle = false;
-		}
-
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 + 300, 700), IMAGE->FindImage("QuitButton"), 0.7))
-		{
-			bExit = true;
-		}
-		else
-		{
-			bExit = false;
-		}
-		downPos = INPUT->GetMousePos();
-	}
-	else if (INPUT->LButtonUp())
-	{
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("StartButton"), 0.7))
-		{
-			if (coll->CheckCollision(downPos, Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("StartButton"), 0.7))
-			{
-				SCENE->ChangeScene("cTitleScene");
-			}
-		}
-		else
-		{
-			bTitle = false;
-			bTitleBtnOver = false;
-		}
-
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 + 300, 700), IMAGE->FindImage("LobbyButton"), 0.7))
-		{
-			if (coll->CheckCollision(downPos, Vec2(WINSIZEX / 2 + 300, 700), IMAGE->FindImage("QuitButton"), 0.7))
-			{
-				exit(0);
-			}
-		}
-		else
-		{
-			bExit = false;
-			bQuitBtnOver = false;
-		}
-	}
-	else
-	{
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 - 300, 700), IMAGE->FindImage("LobbyButton"), 0.7))
-		{
-			bTitleBtnOver = true;
-		}
-		else
-		{
-			bTitleBtnOver = false;
-		}
-
-		if (coll->CheckCollision(INPUT->GetMousePos(), Vec2(WINSIZEX / 2 + 300, 700), IMAGE->FindImage("QuitButton"), 0.7))
-		{
-			bQuitBtnOver = true;
-		}
-		else
-		{
-			bQuitBtnOver = false;
-		}
-	}
+	bcoll->ChkCollision(INPUT->GetMousePos());
 }
 
 void cEndingScene::Render()
@@ -93,14 +33,7 @@ void cEndingScene::Render()
 	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Moon"), Vec2(WINSIZEX / 4, 200));
 	RENDER->CenterRender(IMAGE->FindImage("Title_BG_Cloud"), Vec2(WINSIZEX / 2, WINSIZEY / 2));
 
-	if (bTitle)
-		RENDER->CenterRender(IMAGE->FindImage("LobbyButtonPressed"), Vec2(WINSIZEX / 2 - 300, 700), 0.7);
-	else
-		RENDER->CenterRender(IMAGE->FindImage("LobbyButton"), Vec2(WINSIZEX / 2 - 300, 700), 0.7);
-	if (bExit)
-		RENDER->CenterRender(IMAGE->FindImage("QuitButtonPressed"), Vec2(WINSIZEX / 2 + 300, 700), 0.7);
-	else
-		RENDER->CenterRender(IMAGE->FindImage("QuitButton"), Vec2(WINSIZEX / 2 + 300, 700), 0.7);
+	bcoll->Render();
 }
 
 void cEndingScene::UIRender()
@@ -109,4 +42,5 @@ void cEndingScene::UIRender()
 
 void cEndingScene::Release()
 {
+	SAFE_DELETE(bcoll);
 }
