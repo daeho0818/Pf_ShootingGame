@@ -16,10 +16,6 @@ public:
 	virtual void Release() override;
 
 private:
-	bool bStartBtnOver = false;
-	bool bQuitBtnOver = false;
-	bool bGameStart = false;
-	bool bGameQuit = false;
 	bool isMoonUp = false;
 
 	float moon_oper_value = 0;
@@ -27,9 +23,10 @@ private:
 	int cloud_oper_value[2] = { 0, };
 	int mountains_oper_value[2] = { 0, };
 
-	Vec2 downPos;
-	Vec2 upPos;
 	Vec2 playerPos;
 
-	cCollision* coll;
+	cButtonCollision* bcoll;
+
+	cButton* startButton;
+	cButton* quitButton;
 };

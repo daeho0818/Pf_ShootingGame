@@ -93,11 +93,6 @@ void CALLBACK OnD3D9FrameRender(IDirect3DDevice9* pd3dDevice, double fTime, floa
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 	bool* pbNoFurtherProcessing, void* pUserContext)
 {
-	if (INPUT->downLButton)
-		INPUT->lButton = true;
-	if (INPUT->upLButton)
-		INPUT->lButton = false;
-
 	switch (uMsg)
 	{
 	case WM_LBUTTONDOWN:

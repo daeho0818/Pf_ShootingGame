@@ -28,6 +28,7 @@ const int WINSIZEY = 1080; // 윈도우 세로 크기
 #include "cScene.h"
 #include "cTimer.h"
 #include "cParticle.h"
+#include "cButtonCollision.h"
 #include "DebugLog.h"
 
 #include "cImageManager.h"

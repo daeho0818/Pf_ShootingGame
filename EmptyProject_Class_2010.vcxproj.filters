@@ -108,6 +108,9 @@
     <Filter Include="4. Scene\Ingame2">
       <UniqueIdentifier>{472b1b74-44da-4c9f-8d98-278f7bb25ad9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3. Object\Button">
+      <UniqueIdentifier>{3443a107-d34a-4b42-bded-2a37fa2bda94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -277,6 +280,12 @@
     <ClCompile Include="cIngameScene2.cpp">
       <Filter>4. Scene\Ingame2</Filter>
     </ClCompile>
+    <ClCompile Include="cButtonCollision.cpp">
+      <Filter>3. Object\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="cButton.cpp">
+      <Filter>3. Object\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cMainGame.h">
@@ -387,6 +396,12 @@
     </ClInclude>
     <ClInclude Include="cIngameScene2.h">
       <Filter>4. Scene\Ingame2</Filter>
+    </ClInclude>
+    <ClInclude Include="cButtonCollision.h">
+      <Filter>3. Object\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="cButton.h">
+      <Filter>3. Object\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

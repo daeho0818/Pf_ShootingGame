@@ -387,10 +387,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cButtonCollision.cpp" />
     <ClCompile Include="cBalloon.cpp" />
     <ClCompile Include="cBoss.cpp" />
     <ClCompile Include="cBullet.cpp" />
     <ClCompile Include="cBulletAdmin.cpp" />
+    <ClCompile Include="cButton.cpp" />
     <ClCompile Include="cCollision.cpp" />
     <ClCompile Include="cEndingScene.cpp" />
     <ClCompile Include="cHeal.cpp" />
@@ -407,10 +409,12 @@
     <ClCompile Include="cRifle.cpp" />
     <ClCompile Include="cSideMove.cpp" />
     <ClCompile Include="cIngameScene2.cpp" />
+    <ClInclude Include="cButtonCollision.h" />
     <ClInclude Include="cBalloon.h" />
     <ClInclude Include="cBoss.h" />
     <ClInclude Include="cBullet.h" />
     <ClInclude Include="cBulletAdmin.h" />
+    <ClInclude Include="cButton.h" />
     <ClInclude Include="cCollision.h" />
     <ClInclude Include="cEndingScene.h" />
     <ClInclude Include="cHeal.h" />

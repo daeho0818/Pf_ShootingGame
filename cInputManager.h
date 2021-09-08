@@ -24,11 +24,9 @@ public:
 
 	bool LButtonDown();
 	bool LButtonUp();
-	bool LButton();
 
 	bool downLButton = false;
 	bool upLButton = false;
-	bool lButton = false;
 };
 
 #define INPUT cInputManager::GetInstance()

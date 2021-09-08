@@ -57,8 +57,3 @@ bool cInputManager::LButtonUp()
 {
 	return upLButton;
 }
-
-bool cInputManager::LButton()
-{
-	return lButton;
-}
