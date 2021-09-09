@@ -101,6 +101,10 @@ void cMainGame::AddResource()
 	IMAGE->AddImage("LobbyButton", "Title/Buttons/LobbyButton");
 	IMAGE->AddImage("LobbyButtonHighlight", "Title/Buttons/LobbyButtonHighlight");
 	IMAGE->AddImage("LobbyButtonPressed", "Title/Buttons/LobbyButtonPressed");
+
+	IMAGE->AddImage("WayButton", "Title/Buttons/WayButton");
+	IMAGE->AddImage("WayButtonHighlight", "Title/Buttons/WayButtonHighlight");
+	IMAGE->AddImage("WayButtonPressed", "Title/Buttons/WayButtonPressed");
 	
 	IMAGE->AddImage("GameName", "Title/GameName");
 

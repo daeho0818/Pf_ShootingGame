@@ -409,6 +409,7 @@
     <ClCompile Include="cRifle.cpp" />
     <ClCompile Include="cSideMove.cpp" />
     <ClCompile Include="cIngameScene2.cpp" />
+    <ClCompile Include="singleton.cpp" />
     <ClInclude Include="cButtonCollision.h" />
     <ClInclude Include="cBalloon.h" />
     <ClInclude Include="cBoss.h" />
@@ -446,15 +447,14 @@
     <ClInclude Include="cSideMove.h" />
     <ClInclude Include="DXUT\Optional\SDKsound.h" />
     <ClInclude Include="DXUT\Optional\SDKwavefile.h" />
+    <ClInclude Include="singleton.h" />
     <ClInclude Include="stdafx.h" />
     <None Include="DXUT\Optional\directx.ico" />
-    <ClInclude Include="2. Manager\singleton.h" />
     <ClInclude Include="cImageManager.h" />
     <ClInclude Include="cMainGame.h" />
     <ClInclude Include="DXUT\Core\DXUT.h" />
     <ClInclude Include="DXUT\Core\DXUTenum.h" />
     <ClInclude Include="DXUT\Core\DXUTmisc.h" />
-    <ClCompile Include="2. Manager\singleton.cpp" />
     <ClCompile Include="cImageManager.cpp" />
     <ClCompile Include="cInputManager.cpp" />
     <ClCompile Include="cMainGame.cpp" />

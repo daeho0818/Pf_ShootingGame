@@ -179,9 +179,6 @@
     <ClCompile Include="cImageManager.cpp">
       <Filter>2. Manager\Image</Filter>
     </ClCompile>
-    <ClCompile Include="2. Manager\singleton.cpp">
-      <Filter>2. Manager</Filter>
-    </ClCompile>
     <ClCompile Include="cTexture.cpp">
       <Filter>2. Manager\Image</Filter>
     </ClCompile>
@@ -286,6 +283,9 @@
     <ClCompile Include="cButton.cpp">
       <Filter>3. Object\Button</Filter>
     </ClCompile>
+    <ClCompile Include="singleton.cpp">
+      <Filter>2. Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cMainGame.h">
@@ -293,9 +293,6 @@
     </ClInclude>
     <ClInclude Include="cImageManager.h">
       <Filter>2. Manager\Image</Filter>
-    </ClInclude>
-    <ClInclude Include="2. Manager\singleton.h">
-      <Filter>2. Manager</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="cTexture.h">
@@ -402,6 +399,9 @@
     </ClInclude>
     <ClInclude Include="cButton.h">
       <Filter>3. Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>2. Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

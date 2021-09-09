@@ -43,4 +43,6 @@ void cEndingScene::UIRender()
 void cEndingScene::Release()
 {
 	SAFE_DELETE(bcoll);
+	SAFE_DELETE(lobbyButton);
+	SAFE_DELETE(quitButton);
 }

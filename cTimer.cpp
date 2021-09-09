@@ -1,7 +1,7 @@
 #include "DXUT.h"
 #include "cTimer.h"
 
-cTimer::cTimer(float time, function<void()> func, bool loop, int count)
+cTimer::cTimer(double time, function<void()> func, bool loop, int count)
 	:m_time(time * 1000), func(func), b_loop(loop), m_count(count)
 {
 	//GetTickCount() : OS 부팅부터 지나간 시간을 msec(1 / 1000초)로 반환하는 함수, 1초마다 1000msec씩 올라감

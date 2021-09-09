@@ -1,5 +1,5 @@
 #pragma once
-#include "2. Manager/singleton.h"
+#include "singleton.h"
 class cUIManager :
 	public singleton<cUIManager>
 {

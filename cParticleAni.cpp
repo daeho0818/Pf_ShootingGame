@@ -2,9 +2,8 @@
 #include "cParticleAni.h"
 
 cParticleAni::cParticleAni(Vec2 pos, float size, int kind, float frameTime)
-	:cParticle(pos, size, kind, frameTime)
+	:cParticle(pos, size, frameTime)
 {
-	FrameTime = frameTime;
 	if (kind == 0) // 파티클 종류 첫번째
 		m_images = IMAGE->MakeVecImg("expl_mob"); // expl_mob이라는 이름의 이미지들을 애니메이션화하여 m_images에 저장
 	else if (kind == 1) // 파티클 종류 두번째
@@ -25,12 +24,12 @@ void cParticleAni::Update()
 	if (m_ani != nullptr) m_ani->Update(); // cTimer가 nullptr이 아니라면 cTimer의 Update() 실행
 	if (m_bOnce) // 하나의 파티클 애니메이션을 한번만 재생하기 위함
 	{
-		m_ani = new cTimer(FrameTime, [&]()->void { // 0.02초의 딜레이를 갖고 다음 프레임으로
+		m_ani = new cTimer(m_frameTime, [&]()->void {
 			m_frame++; // 프레임 하나 넘김
 			if (m_frame == m_images.size()) // m_frame이 m_images의 갯수를 넘어섰다면
 				isDestroy = true; // isDestroy에 true 대입
 		}, 1); // 위 과정을 한번 더 반복
-		m_bOnce = false; // 한번만 반복하기 위해 m_bOnce를 flase로 바꿔줌
+		m_bOnce = false; // 한번만 반복하기 위해 m_bOnce를 false로 바꿔줌
 	}
 }
 

@@ -29,4 +29,5 @@ private:
 
 	cButton* startButton;
 	cButton* quitButton;
+	cButton* wayButton;
 };
